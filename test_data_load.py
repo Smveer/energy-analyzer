@@ -1,6 +1,6 @@
 import pytest
-from models.EnergyAnalyzer import EnergyAnalyzer
-from utils.SessionBuilder import SessionBuilder
+from EnergyAnalyzer import EnergyAnalyzer
+from SessionBuilder import SessionBuilder
 
 
 @pytest.fixture

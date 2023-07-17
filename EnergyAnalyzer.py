@@ -1,4 +1,4 @@
-from utils.SessionBuilder import SessionBuilder
+from SessionBuilder import SessionBuilder
 
 
 class EnergyAnalyzer:
