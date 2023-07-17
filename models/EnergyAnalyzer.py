@@ -1,32 +1,29 @@
-from pyspark.sql import SparkSession
+from utils.SessionBuilder import SessionBuilder
 
 
 class EnergyAnalyzer:
-    hdfs_path = None
     energy_data = None
     session = None
+    hdfs_path = None
 
     def __init__(
             self,
-            session: SparkSession,
-            hdfs_path: str
+            session: SessionBuilder
     ):
-        self.session = session
-        self.hdfs_path = hdfs_path
+        session.build_spark_session()
+        self.session = session.get_spark_session()
+        self.hdfs_path = session.get_hdfs_path()
 
     def load_data_from_csv(
             self,
-            file_name: str,
-            schema: str = None
+            file_name: str
     ) -> None:
         """
             Load data from a CSV file
-        :param schema:
         :param file_name:
         :return:
         """
         self.energy_data = self.session.read.csv(
             path=self.hdfs_path + file_name,
-            header=True,
-            schema=schema if schema is not None else None
+            header=True
         )
