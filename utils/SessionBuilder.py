@@ -18,7 +18,9 @@ class SessionBuilder:
         ('spark.sql.repl.eagerEval.enabled', True)  # Enable eager evaluation
     ]
 
-    def __init__(self):
+    def __init__(
+            self: 'SessionBuilder'
+    ) -> None:
         """
             Constructor
         """
@@ -26,7 +28,7 @@ class SessionBuilder:
         self.conf.setAll(self.config_props)  # Set properties
 
     def get_spark_session(
-            self
+            self: 'SessionBuilder'
     ) -> SparkSession:
         """
             Return a SparkSession object
