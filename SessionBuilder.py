@@ -9,7 +9,7 @@ class SessionBuilder:
     session = None  # SparkSession object
     conf = SparkConf()  # Create a SparkConf object
     hadoop_home = "/home/hadoopuser/hadoop"  # Set HADOOP_HOME environment variable
-    hdfs_path = "hdfs://165.22.83.42:9000/"  # Set HDFS path
+    hdfs_path = "hdfs://localhost:9000/"  # Set HDFS path
     config_props = [
         ("spark.app.name", "EnergyAnalyzerApp"),  # Set the application name
         ("spark.master", "local[*]"),  # Set the Spark master URL
